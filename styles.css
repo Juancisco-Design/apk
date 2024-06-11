@@ -1,0 +1,154 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Cambiado a min-height */
+    overflow-y: auto; /* Agregado overflow-y */
+    position: relative;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: auto;
+    font-style: normal;
+    color: #022179;
+}
+
+.ventana {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%; /* Cambiado el ancho */
+    max-width: 300px; /* Reducido el ancho máximo */
+    padding: 20px;
+    background: #fff;
+    opacity: 0.95;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    overflow-y: auto;
+}
+
+.ventana.activa {
+    display: flex;
+}
+
+#ventana3 .miniatura img {
+    display: block; /* Hace que la imagen sea un elemento de bloque */
+    margin: 0 auto; /* Centra horizontalmente la imagen */
+}
+
+
+#videoFondo {
+    position: absolute;
+    z-index: -1; /* Coloca el video detrás del contenido */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta el tamaño del video para cubrir el fondo */
+}
+
+h1 {
+    text-align: center;
+}
+
+h1 img {
+    width: 300px; /* Ancho deseado para la imagen */
+    height: auto; /* Altura automática para mantener la proporción */
+    display: block; /* Para que la imagen se comporte como un bloque */
+    margin: 0 auto; /* Centrar la imagen horizontalmente */
+}
+
+form {
+    width: 100%;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input, select, textarea, button {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    background-color: #079BE1; /* Color base */
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    border-radius: 15px;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+button:hover {
+    background-color: #022179; /* Color al pasar el mouse */
+    transform: scale(1.1);
+}
+
+button:active {
+    background-color: #022179; /* Color al hacer clic */
+    transform: scale(1.2);
+}
+
+.button-ubicacion {
+    background-color: #ff595e ; /* Color diferente para el botón de ubicación */
+}
+
+.button-tomar-foto {
+    margin-right: 5px; /* Establece un margen a la derecha del botón */
+    background-color: #8ac926; /* Color diferente para el botón de tomar foto */
+}
+
+.button-adjuntar-foto {
+    margin-left: 5px; /* Establece un margen a la derecha del botón */
+    background-color: #ffca3a ; /* Color diferente para el botón de adjuntar foto */
+}
+
+.button-atras {
+    margin-right: 5px; /* Establece un margen a la derecha del botón */
+}
+
+.button-continuar {
+    margin-left: 5px; /* Establece un margen a la derecha del botón */
+}
+
+.error {
+    color: #ff595e ;
+    font-weight: bold;
+    margin-top: -16px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.foto-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.preview {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.miniatura {
+    max-width: 100px;
+    max-height: 100px;
+    margin-top: 8px;
+}

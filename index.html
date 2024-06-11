@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeakGuard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="ventana1" class="ventana activa">
+        <h1><img src="logo.png" alt="Logo de LeakGuard"></h1>
+        <form id="formUsuarioReporte" action="https://formsubmit.co/e7466950d2d706927400cc2aebfbc87d" method="POST" enctype="multipart/form-data">
+            <div id="usuarioSeccion">
+                <label for="nombre"><i class="fas fa-user"></i> NOMBRE:</label>
+                <input type="text" id="nombre" name="Nombre" required pattern="[a-zA-Z\s]+" placeholder="Ingrese su nombre completo">
+                
+                <label for="matricula"><i class="fas fa-id-badge"></i> MATRÍCULA:</label>
+                <input type="tel" id="matricula" name="Matricula" required pattern="\d{8}" maxlength="8" placeholder="Ingrese su matrícula (8 dígitos)">
+                
+                <label for="telefono"><i class="fas fa-phone"></i> NÚMERO DE TELEFÓNO:</label>
+                <input type="tel" id="telefono" name="Telefono" required pattern="\d{10}" maxlength="10" placeholder="Ingrese su número telefónico (10 dígitos)">
+                
+                <button type="button" id="continuarReporte"><i class="fas fa-sign-in-alt"></i> INGRESAR</button>
+                <br><br><div id="errorUsuario" class="error"></div>
+            </div>
+    
+            <div id="reporteSeccion" style="display:none;">
+                <h1><i class="fas fa-water"></i> COMPLETA EL REPORTE DE LA FUGA</h1>
+    
+                <label for="edificio"><i class="fas fa-building"></i> EDIFICIO:</label>
+                <select id="edificio" name="Edificio" required>
+                    <option value="" selected disabled>Seleccionar Edificio</option>
+                    <option value="Clinica Integral Universitaria">Clínica Integral Universitaria</option>
+                    <option value="Gastronomia y Logistica Aeroportuaria">Gastronomía y Logística Aeroportuaria</option>
+                    <option value="Comunicacion Multimedia">Comunicación Multimedia</option>
+                    <option value="Acupuntura">Acupuntura</option>
+                    <option value="Viveros - Jardines">Viveros - Jardines</option>
+                    <option value="Servicios Escolares">Servicios Escolares</option>
+                    <option value="Papeleria">Papelería</option>
+                    <option value="Cae (Centro de Apoyo a Estudiantes)">CAE (Centro de Apoyo a Estudiantes)</option>
+                    <option value="Rectoria">Rectoría</option>
+                    <option value="CELE (Centro de Idiomas)">CELE (Centro de Idiomas)</option>
+                    <option value="Vinculacion">Vinculación</option>
+                    <option value="Area Deportiva">Área Deportiva</option>
+                    <option value="Gimnasio al Aire Libre">Gimnasio al Aire Libre</option>
+                    <option value="Humanidades Empresa y Gerontologia">Humanidades Empresa y Gerontología</option>
+                    <option value="Biblioteca">Biblioteca</option>
+                    <option value="UPI (Unidad De Posgrado E Investigacion)">UPI (Unidad De Posgrado E Investigación)</option>
+                    <option value="Cafeteria">Cafetería</option>
+                    <option value="Teatro Agora">Teatro Ágora</option>
+                    <option value="Plaza del Zorro">Plaza del Zorro</option>
+                    <option value="Auditorio Magno">Auditorio Magno</option>
+                    <option value="Estancia">Estancia</option>
+                    <option value="Quiropractica">Quiropráctica</option>
+                    <option value="Laboratorios De Computo">Laboratorios De Computo</option>
+                    <option value="Gimnasio">Gimnasio</option>
+                    <option value="Otro">Otro</option>
+                </select>
+                <input type="text" id="otroEdificio" name="OtroEdificio" placeholder="Especifica el edificio" style="display: none;">
+                
+                <label for="instalacion"><i class="fas fa-restroom"></i> INSTALACIÓN:</label>
+                <select id="instalacion" name="Instalacion" required>
+                    <option value="" selected disabled>Seleccionar Instalación</option>
+                    <option value="Baño Mujeres">Baño de Mujeres</option>
+                    <option value="Baño Hombres">Baño de Hombres</option>
+                    <option value="Baño Hombres">Fuga Externa</option>
+                    <option value="otra">Otra</option>
+                </select>
+                <input type="text" id="otraInstalacion" name="OtraInstalacion" placeholder="Especifica la instalación" style="display: none;">
+                
+                <label for="planta"><i class="fas fa-layer-group"></i> PLANTA:</label>
+                <select id="planta" name="Planta" required>
+                    <option value="" selected disabled>Seleccionar Planta</option>
+                    <option value="Alta">Alta</option>
+                    <option value="Baja">Baja</option>
+                    <option value="otra">Otra</option>
+                </select>
+                <input type="text" id="otraPlanta" name="OtraPlanta" placeholder="Especifica la planta" style="display: none;">
+                
+                <label for="ubicacion"><i class="fas fa-map-marker-alt"></i> UBICACIÓN EXACTA:</label>
+                <button type="button" id="ubicacion" class="button-ubicacion"><i class="fas fa-map-marker-alt"></i> Obtener Ubicación</button>
+    
+                <label for="foto"><i class="fas fa-camera"></i> FOTO DE LA FUGA:</label>
+                <div class="foto-buttons">
+                    <button type="button" id="tomarFoto" class="button-tomar-foto"><i class="fas fa-camera"></i> Tomar Foto</button>
+                    <button type="button" id="adjuntarFotoBtn" class="button-adjuntar-foto"><i class="fas fa-upload"></i> Adjuntar Foto</button>
+                </div>
+                <input type="file" id="foto" name="Foto" accept="image/*" capture="camera" style="display: none;">
+                <input type="file" id="adjuntarFoto" name="AdjuntarFoto" accept="image/*" style="display: none;">
+                <div id="previewFoto" class="preview"></div><br>
+                
+                <label for="observaciones"><i class="fas fa-comments"></i> OBSERVACIONES:</label>
+                <textarea id="observaciones" name="Observaciones" required placeholder="Ingrese detalles adicionales sobre la fuga"></textarea>
+                <div class="foto-buttons">
+                    <button type="button" id="regresar" class="button-atras"><i class="fas fa-arrow-left"></i> ATRAS</button>
+                    <button type="button" id="verResumen" class="button-continuar"><i class="fas fa-arrow-right"></i> CONTINUAR</button>
+                </div>
+                <br><br><div id="errorReporte" class="error"></div>
+            </div>
+    
+            <div id="resumenSeccion" style="display:none;">
+                <h1><i class="fas fa-eye"></i> RESUMEN DEL REPORTE</h1>
+                <div id="resumen"></div>
+                <div class="foto-buttons">
+                    <button type="button" id="editar" class="button-atras"><i class="fas fa-edit"></i> EDITAR</button>
+                    <button type="submit" id="enviar" class="button-continuar"><i class="fas fa-paper-plane"></i> ENVIAR</button>
+                </div>
+                <input type="hidden" name="_next" value="https://juancisco-design.github.io/apk/">
+                <input type="hidden" name="_captcha" value="false">
+            </div>
+    
+            <div id="finalSeccion" style="display:none;">
+                <h1><i class="fas fa-check"></i> REPORTE ENVIADO</h1>
+                 <p><span id="nombreUsuario"></span> recibimos tu reporte y queremos informarte que nuestro equipo de mantenimiento trabajará en ello. Te mantendremos informado sobre la solución de la fuga. Agradecemos tu colaboración para mantener las instalaciones de la UNEVE en óptimas condiciones. Juntos, sigamos cuidando el agua. <br><br></p>
+                 <div class="foto-buttons">
+                 <button id="inicio" class="button-atras"><i class="fas fa-home"></i> REGRESAR AL INICIO</button>
+                 <button type="button" id="salir" class="button-continuar"><i class="fas fa-sign-out-alt"></i> SALIR</button>
+                </div>
+            </div>
+        </form>
+    </div>    
+
+    <audio id="buttonSound" src="click-sound.mp3"></audio>
+    <script src="script.js"></script>
+
+    <img src="fondo.gif" id="videoFondo" alt="Fondo animado">
+      
+</body>
+</html>
